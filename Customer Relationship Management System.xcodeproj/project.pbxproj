@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		101CFC1D2AC554460092A7E4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 101CFC1C2AC554460092A7E4 /* main.cpp */; };
+		103F8A502AD66D61005D2C3E /* CORRECT read write in binary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 103F8A4E2AD66D61005D2C3E /* CORRECT read write in binary.cpp */; };
 		104BAD412AD65E95001B28BE /* Binary file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 104BAD3F2AD65E95001B28BE /* Binary file.cpp */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		101CFC192AC554460092A7E4 /* Customer Relationship Management System */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Customer Relationship Management System"; sourceTree = BUILT_PRODUCTS_DIR; };
 		101CFC1C2AC554460092A7E4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		103F8A4E2AD66D61005D2C3E /* CORRECT read write in binary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "CORRECT read write in binary.cpp"; sourceTree = "<group>"; };
 		104BAD3F2AD65E95001B28BE /* Binary file.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Binary file.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +63,7 @@
 			children = (
 				101CFC1C2AC554460092A7E4 /* main.cpp */,
 				104BAD3F2AD65E95001B28BE /* Binary file.cpp */,
+				103F8A4E2AD66D61005D2C3E /* CORRECT read write in binary.cpp */,
 			);
 			path = "Customer Relationship Management System";
 			sourceTree = "<group>";
@@ -122,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101CFC1D2AC554460092A7E4 /* main.cpp in Sources */,
+				103F8A502AD66D61005D2C3E /* CORRECT read write in binary.cpp in Sources */,
 				104BAD412AD65E95001B28BE /* Binary file.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
