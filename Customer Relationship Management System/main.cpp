@@ -13,6 +13,7 @@ class ClientInfo
     
     std::ofstream file1;
     std::ifstream file2;
+    std::fstream file3;
     
 public:
     
@@ -41,10 +42,12 @@ public:
     
     ClientInfo()
     {
-        file1.open("/Users/mbp/Documents/Semester 5/DSA/DSA/DSA/DSA/Client Information.bin", std::ios::binary | std::ios::out | std::ios::app);
+        file1.open("/Users/mbp/Documents/Semester 5/DSA/DSA/DSA/DSA/Client Information.bin", std::ios::binary | std::ios::out);
         
        
         file2.open("/Users/mbp/Documents/Semester 5/DSA/DSA/DSA/DSA/Client Information.bin", std::ios::binary | std::ios::in);
+        
+        file3.open("/Users/mbp/Documents/Semester 5/DSA/DSA/DSA/DSA/Client Information.bin", std::ios::binary | std::ios::in | std::ios::out | std::ios::app);
         
     }
     
@@ -75,10 +78,10 @@ public:
             std::cout<<"Enter your ID: "<<std::endl;
             std::cin>>clientID;
             std::cout<<"Enter your name: "<<std::endl;
-            std::cin.ignore();                //can not input the whole string
-            std::cin.getline(name,sizeof(name));     //does not run
+            std::cin.ignore();
+            std::cin.getline(name,sizeof(name));
             std::cout<<"Enter your Address: "<<std::endl;
-            std::cin.ignore();                //can not input the whole string
+            std::cin.ignore();
             std::cin.getline(address,sizeof(address));
             
             file1.write((char*)this, sizeof(this));
@@ -91,6 +94,7 @@ public:
     {
         file1.close();
         file2.close();
+        file3.close();
     }
     
     
@@ -127,8 +131,8 @@ public:
             if(clientID==ID_no)
             {
                 std::cout<<"Client record FOUND"<<std::endl;
-                std::cout<<"ID"<<"\tname\tAddress\n";
-                std::cout<<"---------------------------------------\n";
+                std::cout<<"\nID"<<"\tname\tAddress\n";
+                std::cout<<"------------------------------\n";
                 std::cout<<name<<"\t"<<clientID<<"\t"<<address<<"\t"<<std::endl;
                 search=1;
             }
@@ -142,6 +146,71 @@ public:
         
     }
     
+    
+    //Update client Information
+    void updateClientInfo()
+    {
+        int n;
+        int choice=0;
+        int ID_no;
+        int search=0;
+
+        file3.seekg(0);
+        
+        if(file3.is_open())
+        {
+            std::cout<<"File 3 opening successful"<<std::endl;
+        }
+        
+        
+        std::cout<<"\nHow many times do you want to Update client data"<<std::endl;
+        std::cin>>n;
+
+        while(n<0)
+        {
+            std::cout<<"Please enter a positive value: "<<std::endl;
+            std::cin>>n;
+        }
+                
+        std::cout<<"\nUpdating client:-"<<std::endl;
+        
+        std::cout<<"Enter ID of the client whose record you want to update: "<<std::endl;
+        std::cin>>ID_no;
+        
+        while(file2.read((char*)this, sizeof(this)))
+        {
+            if(clientID==ID_no)
+            {
+                std::cout<<"Client record FOUND"<<std::endl;
+                std::cout<<"\nID"<<"\tname\tAddress\n";
+                std::cout<<"------------------------------\n";
+                std::cout<<name<<"\t"<<clientID<<"\t"<<address<<"\t"<<std::endl;
+                search=1;
+                
+                std::cout<<"\nEnter the updated value: \n";
+                std::cout<<"Enter your ID: "<<std::endl;
+                std::cin>>clientID;
+                std::cout<<"Enter your name: "<<std::endl;
+                std::cin.ignore();                //can not input the whole string
+                std::cin.getline(name,sizeof(name));     //does not run
+                std::cout<<"Enter your Address: "<<std::endl;
+                std::cin.ignore();                //can not input the whole string
+                std::cin.getline(address,sizeof(address));
+                file3.seekp(-sizeof(this), std::ios::cur);
+                
+                file3.write((char*)this, sizeof(this));
+                
+            }
+                
+        }
+        
+        if(search==0)
+        {
+            std::cout<<"Record not found!"<<std::endl;
+        }
+        
+        
+    }
     
     
 };
